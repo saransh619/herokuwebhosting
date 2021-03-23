@@ -24,15 +24,15 @@ paypal.configure({
         payment_method: "paypal",
       },
       redirect_urls: {
-        return_url: "https://www.nea.org.np/",
-        cancel_url: "https://www.google.com/",
+        return_url: "https://saransh-payment-gateway.herokuapp.com/success",
+        cancel_url: "https://saransh-payment-gateway.herokuapp.com/cancel",
       },
       transactions: [
         {
           item_list: {
             items: [
               {
-                name: "Red Sox Hat",
+                name: "Lucifer Pachhai",
                 sku: "001",
                 price: "5.00",
                 currency: "USD",
@@ -87,7 +87,7 @@ paypal.configure({
         throw error;
       } else {
         console.log(JSON.stringify(payment));
-        res.send("Success");
+        res.send("Payment Success");
       }
     });
   });

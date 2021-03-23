@@ -14,24 +14,30 @@ html {
   background: #c0c3c5;
 }
 
-.right {
+/* .right {
   position: absolute;
   right: 34px;
   top: 43px;
   display: inline-block;
   /* border: 2px solid yellow; */
+/* } */ 
+
+.right{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -25px;
 }
 
 .rightbtn {
   font-family: 'Baloo Bhai', cursive;
-  margin: 0px 9px;
-  background-color: black;
-  color: white;
-  padding: 4px 14px;
-  border: 2px solid grey;
-  border-radius: 10px;
-  font-size: 20px;
-  cursor: pointer;
+    margin: 0px 9px;
+    background-color: #151313;
+    color: white;
+    padding: 4px 14px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .rightbtn:hover {
