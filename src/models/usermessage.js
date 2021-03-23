@@ -19,9 +19,9 @@ const userSchema = mongoose.Schema({
     },
     phone:{
         type:Number,
+        min:10,
         required:true,
-        unique:true,
-        min:10
+        unique:true
     },
     message:{
         type:String,
