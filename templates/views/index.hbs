@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="css/style.css">
+    {{!-- khalti  --}}
+     <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+  {{!-- For dark mode  --}}
+<nav>
+      <div class="dark">
+        <div class="Darkcenter">
+          <input id="dark" type="checkbox">
+        </div>
+      </div>
+</nav>
+{{!-- dark mode end  --}}
+
+<div class="main_header">
+   <a class="navbar-brand" href="/" id="logo"><img style="height:100px; background-color:transparent;" src="images/logo.png" alt="logo"/></a>
+  <div class="right">
+    <!-- Place this where you need payment button -->
+    <button id="payment-button">Pay with Khalti</button>
+    <!-- Place this where you need payment button -->
+            {{!-- <button class="rightbtn">Pay Online</button> --}}
+            <button class="rightbtn">LOGIN</button>
+            <button class="rightbtn">SIGN UP</button>
+  </div>
+</div>
+    <header>
+      <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
+        <h1>Nepal Electricity Authority</h1>
+        <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
+    </header>
+  
+  <marquee style="color: blueviolet; font-size:40px; color: blueviolet; text-shadow: 8px 8px 5px darkslategrey;">YO MAAN XA MERO NEPALI HO!! @SARANSHROCK</marquee>
+  {{>navbar}}
+
+  {{!-- hero section start  --}}
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="row">
+          <div class="col-md-6 col-12 hero-text order-md-0 order-1 d-flex justify-content-center align-items-start flex-column">
+            <h1>WE WILL HELP</h1>
+            <h1>TO DEVELOP OUR NATION</h1>
+            <p>PAY TAX, <span class="bold-style">SAVE NATION</span></p>
+            <a href="https://www.nea.org.np/" target="_saransh"><button style="font-weight:900" class="btn btn-style btn-primary">Read More</button></a>
+          </div>
+          {{!-- right side --}}
+          <div class="col-md-6 col-12 hero-text order-md-0 order-1">
+            <figure>
+              <img style="height: 400px; border-radius: 26%; width: 600px; " src="images/Nepal-Electricity-Authority.jpg" alt="herosection">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- hero section ends  --}}
+
+  {{!-- About Us start  --}}
+    {{>about}}
+  {{!-- About Us ends  --}}
+
+  {{!-- our services start  --}}
+    {{>gallery}}
+  {{!-- our services ends  --}}
+
+  {{!-- Maps start  --}}
+    {{>maps}}
+  {{!-- Maps ends  --}}
+  
+  {{!-- Contact Us start  --}}
+    {{>contact}}
+  {{!-- Contact Us ends  --}}
+
+
+{{!-- esewa --}}
+{{!-- for payment  --}}
+<form action="https://uat.esewa.com.np/epay/main" method="POST">
+    <input value="1000" name="tAmt" type="hidden">
+    <input value="1000" name="amt" type="hidden">
+    <input value="0" name="txAmt" type="hidden">
+    <input value="0" name="psc" type="hidden">
+    <input value="0" name="pdc" type="hidden">
+    <input value="EPAYTEST" name="scd" type="hidden">
+    <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
+    <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
+    <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
+    <input value="Submit" type="submit">
+    </form>
+
+    <script>
+      var path="https://uat.esewa.com.np/epay/main";
+var params= {
+    amt: 1000,
+    psc: 0,
+    pdc: 0,
+    txAmt: 0,
+    tAmt: 1000,
+    pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
+    scd: "EPAYTEST",
+    su: "http://merchant.com.np/page/esewa_payment_success",
+    fu: "http://merchant.com.np"
+}
+
+function post(path, params) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST");
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+    </script>
+
+{{!-- payment verification  --}}
+<form action="https://uat.esewa.com.np/epay/transrec" method="GET">
+    <input value="1000" name="amt" type="hidden">
+    <input value="EPAYTEST" name="scd" type="hidden">
+    <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
+    <input value="000AE01" name="rid" type="hidden">
+    <input value="Submit" type="submit">
+    </form>
+
+    <script>
+      var path="https://uat.esewa.com.np/epay/transrec";
+var params= {
+    amt: 1000,
+    rid: "000AE01",
+    pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
+    scd: "EPAYTEST"
+}
+
+function post(path, params) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST");
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+    </script>
+
+{{!-- esewa end  --}}
+
+  {{!-- KHALTI --}}
+    <!-- Paste this code anywhere in you body tag -->
+    
+    <script>
+      var khaltiCheckout = require("khalti-checkout-web");
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "paymentPreference": [
+                "KHALTI",
+                "EBANKING",
+                "MOBILE_BANKING",
+                "CONNECT_IPS",
+                "SCT",
+                ],
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            // minimum transaction amount must be 10, i.e 1000 in paisa.
+            checkout.show({amount: 1000});
+        }
+    </script>
+    <!-- Paste this code anywhere in you body tag -->
+
+{{!-- KHALTI ENDS  --}}
+
+
+{{!-- PAYPAL  --}}
+
+<h1>Coding Shiksha App Store</h1>
+  <h2>Buy For $25</h2>
+  <form action="/pay" method="post">
+    <input type="submit" value="Buy">
+  </form>
+
+{{!-- PAYPAL ENDS  --}}
+
+{{!-- footer starts --}}
+      <footer style="w-100 bg-light text-center ">
+                <p style="height:'10vh',display:'flex',justifyContent:'center',alignItems:'center'">&copy; 2021 SaranshRock. All Rights Reserved | Terms and Conditions</p>
+      </footer>
+{{!-- footer ends  --}}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../jq/jquery.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+
+
+{{!-- Dark mode  --}}
+    <script>
+      $(document).ready(function(){
+        $('#dark').click(function(){
+          $('body').toggleClass('Active');
+          $('.dark').toggleClass('check');
+        });
+      });
+</script>
+{{!-- dark mode ends  --}}
+
+</body>
+</html>
