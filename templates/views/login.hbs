@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  {{!--
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
+  <link rel="stylesheet" href="css/style.css">
+  {{!-- khalti --}}
+  <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+  <title>Payment Gateway-saransh@rock</title>
+</head>
+
+<body>
+
+  {{!-- For dark mode --}}
+  <nav>
+    <div class="dark">
+      <div class="Darkcenter">
+        <input id="dark" type="checkbox">
+      </div>
+    </div>
+  </nav>
+  {{!-- dark mode end --}}
+
+  <div class="main_header">
+    <a class="navbar-brand" href="/" id="logo"><img style="height:100px; background-color:transparent;"
+        src="images/logo.png" alt="logo" /></a>
+    <div class="right">
+
+      {{!-- PAYPAL --}}
+      <form action="/pay" method="post">
+        <button class="rightbtn">Pay with Paypal</button>
+      </form>
+
+      {{!-- esewa payment html --}}
+      <form action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value="1000" name="tAmt" type="hidden">
+        <input value="1000" name="amt" type="hidden">
+        <input value="0" name="txAmt" type="hidden">
+        <input value="0" name="psc" type="hidden">
+        <input value="0" name="pdc" type="hidden">
+        <input value="EPAYTEST" name="scd" type="hidden">
+        <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
+        <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
+        <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
+        <button class="rightbtn">Pay with esewa</button>
+      </form>
+      {{!-- esewa payment html end --}}
+
+      {{!-- PAYPAL ENDS --}}
+      {{!-- <button class="rightbtn">Pay Online</button> --}}
+      <button class="rightbtn">LOGIN</button>
+      <button class="rightbtn">SIGN UP</button>
+    </div>
+  </div>
+  <header>
+    <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
+    <h1>Nepal Electricity Authority</h1>
+    <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
+  </header>
+
+  <form action="/login" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" placeholder="Enter email address.."><br><br>
+      <label for="pw">Password:</label>
+      <input type="password" name="password" id="pw" placeholder="Enter your password.."><br><br>
+      <button type="submit">Login</button>
+  </form>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    {{!-- Dark mode --}}
+    <script>
+        $(document).ready(function () {
+            $('#dark').click(function () {
+                $('body').toggleClass('Active');
+                $('.dark').toggleClass('check');
+            });
+        });
+    </script>
+    {{!-- dark mode ends --}}
+    
+  </body>
+  </html>

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // creating a database
-mongoose.connect("mongodb://localhost:27017/saranshdynamic", {
+mongoose.connect("mongodb://localhost:27017/contactform", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true

@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 require("./db/conn");
-const User = require("./models/usermessage");
+const User= require("./models/usermessage");
+const UserRegister = require("./models/userregister");
 const hbs = require("hbs");
 const { registerPartials } = require("hbs");
 
@@ -105,8 +106,10 @@ app.use('/css', express.static(path.join(__dirname, "../node_modules/bootstrap/d
 app.use("/js", express.static(path.join(__dirname, "../node_modules/bootstrap/dist/js")));
 app.use("/jq", express.static(path.join(__dirname, "../node_modules/jquery/dist")));
 
-app.use(express.urlencoded({extended:false}))
-app.use(express.static(staticpath))
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
+app.use(express.static(staticpath));
 app.set("view engine", "hbs");
 app.set("views", templatepath);
 hbs.registerPartials(partialpath);
@@ -117,6 +120,7 @@ app.get("/", (req,res)=>{
     res.render("index");
 })
 
+
 app.post("/contact", async(req,res)=>{
     try{
         const userData = new User(req.body);
@@ -125,6 +129,66 @@ app.post("/contact", async(req,res)=>{
     }catch(error){
         res.status(500).send(error);
     }
+})
+
+app.get("/register", (req,res)=>{
+  res.render("register");
+})
+
+app.get("/login", (req,res)=>{
+  res.render("login");
+})
+
+// create a new user in my database 
+app.post("/register", async (req,res)=>{
+  try{
+        const password = req.body.password;
+        const cpassword = req.body.cpassword;
+       if(password===cpassword){
+          const newUserRegister = new UserRegister({
+            fname: req.body.fname,
+            lname: req.body.lname,
+            us: req.body.us,
+            gender: req.body.gender,
+            email: req.body.email,
+            contactnumber: req.body.contactnumber,
+            password: password,
+            cpassword: cpassword
+          })
+          await newUserRegister.save();
+         res.status(201).render("index");
+       }else{
+         res.send("Password are not matching.");
+       }
+  }catch(error){
+    res.status(400).send(error);
+  }
+})
+
+
+// login user in my database 
+app.post("/login", async (req,res)=>{
+  try{
+    const email = req.body.email;
+    const password = req.body.password;
+    const useremail = await UserRegister.findOne({email:email});
+    if(useremail.password===password){
+      res.status(201).render("LoginDashboard");
+    }else{
+      res.send("Invalid login details");
+    }
+  }catch(error){
+    res.status(400).send("Invalid login details");
+  }
+})
+
+// Logout
+app.post("/logout", (req,res)=>{
+  try{
+      res.status(201).render("login");
+    }catch(error){
+    res.status(400).send(error);
+  }
 })
 
 //server create
