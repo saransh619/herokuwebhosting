@@ -8,9 +8,55 @@
   {{!--
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="css/style.css">
-  {{!-- khalti --}}
-  <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
   <title>Payment Gateway-saransh@rock</title>
+  {{!-- favicon start --}}
+  <link rel="icon" href="images/favicon/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  {{!-- favicon end --}}
+
+  <style>
+    .footercss {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .form_container {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type=email],
+    input[type=password],
+    input[type=submit] {
+      padding: 5px 75px;
+      font-size: 15px;
+    }
+
+    input[type=submit] {
+      border: none;
+      border-radius: 15px;
+      font-weight: 800;
+      padding: 8px 26px;
+      background: darkgray;
+      color: white;
+      outline: none;
+    }
+
+    input[type=submit]:hover{
+      background-color: blueviolet;
+      color: coral;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -34,6 +80,7 @@
       <form action="/pay" method="post">
         <button class="rightbtn">Pay with Paypal</button>
       </form>
+      {{!-- paypal ends --}}
 
       {{!-- esewa payment html --}}
       <form action="https://uat.esewa.com.np/epay/main" method="POST">
@@ -50,8 +97,6 @@
       </form>
       {{!-- esewa payment html end --}}
 
-      {{!-- PAYPAL ENDS --}}
-      {{!-- <button class="rightbtn">Pay Online</button> --}}
       <button class="rightbtn">LOGIN</button>
       <button class="rightbtn">SIGN UP</button>
     </div>
@@ -62,26 +107,37 @@
     <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
   </header>
 
+
   <form action="/login" method="POST">
-      <label for="email">Email:</label>
+    <div class="form_container">
+      <label style="font-size:1.8rem;" for="email">Email:</label>
       <input type="email" name="email" id="email" placeholder="Enter email address.."><br><br>
-      <label for="pw">Password:</label>
+      <label style="font-size:1.8rem;" for="pw">Password:</label>
       <input type="password" name="password" id="pw" placeholder="Enter your password.."><br><br>
-      <button type="submit">Login</button>
+      <input type="submit" value="Login" />
+    </div>
   </form>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    {{!-- Dark mode --}}
-    <script>
-        $(document).ready(function () {
-            $('#dark').click(function () {
-                $('body').toggleClass('Active');
-                $('.dark').toggleClass('check');
-            });
-        });
-    </script>
-    {{!-- dark mode ends --}}
-    
-  </body>
-  </html>
+  {{!-- footer starts --}}
+  <footer class="footercss" style="w-100 bg-light text-center">
+    <p style="height:'10vh',display:'flex',justifyContent:'center',alignItems:'center'">&copy; 2021 SaranshRock. All
+      Rights Reserved | Terms and Conditions</p>
+  </footer>
+  {{!-- footer ends --}}
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  {{!-- Dark mode --}}
+  <script>
+    $(document).ready(function () {
+      $('#dark').click(function () {
+        $('body').toggleClass('Active');
+        $('.dark').toggleClass('check');
+      });
+    });
+  </script>
+  {{!-- dark mode ends --}}
+
+</body>
+
+</html>
