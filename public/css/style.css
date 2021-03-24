@@ -56,16 +56,15 @@ header{
   text-align: center;
 }
 
-header h1{
+header h1 {
   font-size: 6rem;
   color: whitesmoke;
-  text-shadow: 8px 8px 6px rgb(16, 153, 172);
+  text-shadow: 8px 8px 5px rgb(74 16 172);
   font-weight: 900;
 }
 
 .nepalFlag{
   height: 200px;
-  padding: 25px;
 }
 
 li,
