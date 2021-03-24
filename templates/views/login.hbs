@@ -21,12 +21,6 @@
   {{!-- favicon end --}}
 
   <style>
-    .footercss {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-
     .form_container {
       justify-content: center;
       display: flex;
@@ -107,14 +101,14 @@
     <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
   </header>
 
-
+<h1 style="text-align: center; font-weight:900">LOGIN FORM</h1>
   <form action="/login" method="POST">
     <div class="form_container">
       <label style="font-size:1.8rem;" for="email">Email:</label>
       <input type="email" name="email" id="email" placeholder="Enter email address.."><br><br>
       <label style="font-size:1.8rem;" for="pw">Password:</label>
       <input type="password" name="password" id="pw" placeholder="Enter your password.."><br><br>
-      <input type="submit" value="Login" />
+      <input style="margin-bottom: 20px;" type="submit" value="Login" />
     </div>
   </form>
 
