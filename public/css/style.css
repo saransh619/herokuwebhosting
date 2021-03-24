@@ -3,6 +3,9 @@
 * {
   font-family: "Poiret One", cursive;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -191,6 +194,10 @@ label {
   font-weight: 500;
 }
 
+
+.aboutimg{
+  height: 424px; border-radius: 27%;
+}
 /* our gallery style starts  */
 
 .gallery-style {

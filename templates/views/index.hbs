@@ -20,6 +20,45 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   {{!-- favicon end --}}
+
+  <style>
+    .homeimg {
+      height: 400px;
+      border-radius: 26%;
+      width: 600px;
+    }
+
+    @media only screen and (max-width: 800px) and (min-width: 500px) {
+      .homeimg {
+        height: 320px;
+        border-radius: 26%;
+        width: 400px;
+      }
+
+      .aboutimg {
+        height: 338px;
+        border-radius: 27%;
+        width: 400px;
+      }
+
+      .rightbtn {
+        margin: 0px;
+        background-color: #151313;
+        color: white;
+        padding: 4px 5px;
+        border-radius: 10px;
+        border: none;
+        font-size: 13px;
+        cursor: pointer;
+        margin-right: 7px;
+      }
+
+      .nepalFlag {
+        height: 155px;
+        padding: 4px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -93,8 +132,7 @@
           {{!-- right side --}}
           <div class="col-md-6 col-12 hero-text order-md-0 order-1">
             <figure>
-              <img style="height: 400px; border-radius: 26%; width: 600px; "
-                src="images/Nepal-Electricity-Authority.jpg" alt="herosection">
+              <img class="homeimg" src="images/Nepal-Electricity-Authority.jpg" alt="herosection">
             </figure>
           </div>
         </div>
