@@ -119,11 +119,17 @@
         <input value="0" name="psc" type="hidden">
         <input value="0" name="pdc" type="hidden">
         <input value="EPAYTEST" name="scd" type="hidden">
-        <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
-        <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
-        <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
+        <input id="poid" value="saransh33" name="pid" type="hidden">
+        <input value="https://saransh619.github.io/testingStatus/success?q=su" type="hidden" name="su">
+        <input value="https://saransh619.github.io/testingStatus/failed?q=fu" type="hidden" name="fu">
         <button class="rightbtn">Pay with esewa</button>
       </form>
+      <script>
+       var check = document.getElementById("poid");
+       check.value=Math.floor(Math.random() * 100000) + 1;
+     
+       console.log(check)
+      </script>
       {{!-- esewa payment html end --}}
 
 
@@ -143,7 +149,7 @@
   {{!-- navbar --}}
   {{>navbar}}
 
-  {{!-- hero section start --}}
+ 
   <div class="container-fluid mt-5">
     <div class="row">
       <div class="col-md-10 col-12 mx-auto">
@@ -159,7 +165,7 @@
           {{!-- right side --}}
           <div class="col-md-6 col-12 hero-text order-md-0 order-1">
             <figure>
-              <img class="homeimg" src="images/Nepal-Electricity-Authority.jpg" alt="herosection">
+              <a href="images/Nepal-Electricity-Authority.jpg"><img class="homeimg" src="images/Nepal-Electricity-Authority.jpg" alt="homesection"></a>
             </figure>
           </div>
         </div>
@@ -187,74 +193,34 @@
 
   {{!-- esewa --}}
   {{!-- for payment --}}
-  <script>
-    var path = "https://uat.esewa.com.np/epay/main";
-    var params = {
-      amt: 1000,
-      psc: 0,
-      pdc: 0,
-      txAmt: 0,
-      tAmt: 1000,
-      pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
-      scd: "EPAYTEST",
-      su: "http://merchant.com.np/page/esewa_payment_success",
-      fu: "http://merchant.com.np"
-    }
+  
+  {{!-- payment verification check --}}
+  <script> 
+    var path="https://uat.esewa.com.np/epay/transrec";
+var params= {
+    amt: 1000,
+    rid: "000AE01",
+    pid: check,
+    scd: "EPAYTEST"
+}
 
-    function post(path, params) {
-      var form = document.createElement("form");
-      form.setAttribute("method", "POST");
-      form.setAttribute("action", path);
+function post(path, params) {
+    var form = document.createElement("form");
+    form.setAttribute("method", "POST");
+    form.setAttribute("action", path);
 
-      for (var key in params) {
+    for(var key in params) {
         var hiddenField = document.createElement("input");
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("name", key);
         hiddenField.setAttribute("value", params[key]);
         form.appendChild(hiddenField);
-      }
-
-      document.body.appendChild(form);
-      form.submit();
-    }
-  </script>
-
-  {{!-- payment verification --}}
-  <form action="https://uat.esewa.com.np/epay/transrec" method="GET">
-    <input value="1000" name="amt" type="hidden">
-    <input value="EPAYTEST" name="scd" type="hidden">
-    <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
-    <input value="000AE01" name="rid" type="hidden">
-    <input value="Submit" type="hidden">
-  </form>
-
-  <script>
-    var path = "https://uat.esewa.com.np/epay/transrec";
-    var params = {
-      amt: 1000,
-      rid: "000AE01",
-      pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
-      scd: "EPAYTEST"
     }
 
-    function post(path, params) {
-      var form = document.createElement("form");
-      form.setAttribute("method", "POST");
-      form.setAttribute("action", path);
-
-      for (var key in params) {
-        var hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", key);
-        hiddenField.setAttribute("value", params[key]);
-        form.appendChild(hiddenField);
-      }
-
-      document.body.appendChild(form);
-      form.submit();
-    }
-  </script>
-
+    document.body.appendChild(form);
+    form.submit();
+}
+</script>
   {{!-- esewa end --}}
 
 
@@ -268,7 +234,6 @@
       Rights Reserved | Terms and Conditions</p>
   </footer>
   {{!-- footer ends --}}
-
 
   {{!--
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script> --}}
