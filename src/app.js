@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-require("./db/conn");
+// require("./db/conn");
 const User= require("./models/usermessage");
 const UserRegister = require("./models/userregister");
 const hbs = require("hbs");
@@ -9,8 +9,22 @@ const { registerPartials } = require("hbs");
 const app = express();
 const port = process.env.PORT || 5000;
 
+// mongodb atlas 
+// const mongoose = require('mongoose');
+// const DB = 'mongodb+srv://saransh:saransh123@cluster0.3oew6.mongodb.net/MyAllData?retryWrites=true&w=majority';
+// mongoose.connect(DB, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false
+// }).then(()=>{
+//   console.log(`Connection Successful`);
+// }).catch((err)=> console.log(`no connection`));
+
+
 // paypal start
 const paypal = require('paypal-rest-sdk');
+// const { Mongoose } = require("mongoose");
 
 paypal.configure({
     mode: "sandbox", //sandbox or live
