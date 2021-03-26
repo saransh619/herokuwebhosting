@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   {{!--
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="css/style.css">
@@ -30,26 +31,114 @@
 
     input[type=email],
     input[type=password],
-    input[type=submit] {
-      padding: 5px 75px;
+    input[type=submit],
+    input[type=text] {
+      padding: 5px 12px;
       font-size: 15px;
+      width: 19%;
+      outline: none;
+      text-align: center;
+      border: 2px solid darkslategrey;
+      border-radius: 10px;
     }
 
     input[type=submit] {
       border: none;
       border-radius: 15px;
-      font-weight: 800;
+      font-weight: 900;
       padding: 8px 26px;
       background: darkgray;
       color: white;
+      width: 8%;
       outline: none;
     }
 
-    input[type=submit]:hover{
+    input[type=submit]:hover {
       background-color: blueviolet;
       color: coral;
     }
 
+    i {
+      margin-left: 670px;
+      cursor: pointer;
+      position: absolute;
+      top: 611px;
+      font-weight: 900;
+    }
+
+    #togglePassword {
+      margin-left: 258px;
+      cursor: pointer;
+      position: absolute;
+      top: 634px;
+      font-weight: 900;
+    }
+
+    .Active #togglePassword {
+      color: black;
+    }
+
+    @media screen and (max-width: 800px) and (min-width: 400px) {
+      .rightbtn {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 16px 5px;
+        background-color: #151313;
+        color: white;
+        padding: 4px 4px;
+        border: 2px solid grey;
+        border-radius: 11px;
+        outline: none;
+        font-size: 1rem;
+        border: none;
+      }
+
+      .nepalFlag {
+        height: 15rem;
+      }
+
+      .right {
+        margin-top: -57px;
+      }
+
+      #togglePassword {
+        margin-left: 240px;
+        cursor: pointer;
+        position: absolute;
+        top: 628px;
+        font-weight: 900;
+      }
+
+      input[type=email],
+      input[type=password],
+      input[type=submit],
+      input[type=text] {
+        font-size: 15px;
+        width: 58%;
+        height: 4rem;
+        outline: none;
+        border: 2px solid darkgrey;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      input[type=submit] {
+        border: none;
+        border-radius: 15px;
+        padding: 8px 26px;
+        background: darkgray;
+        color: white;
+        outline: none;
+        width: 105px;
+        text-align: center;
+        font-weight: 900;
+      }
+
+      input[type=email],
+      input[type=password],
+      input[type=submit] {
+        padding: 0;
+      }
+    }
   </style>
 </head>
 
@@ -68,11 +157,11 @@
   <div class="main_header">
     <a class="navbar-brand" href="/" id="logo"><img style="height:100px; background-color:transparent;"
         src="images/logo.png" alt="logo" /></a>
-    <div class="right">
 
+    <div class="right">
       {{!-- PAYPAL --}}
       <form action="/pay" method="post">
-        <button class="rightbtn">Pay with Paypal</button>
+        <button class="rightbtn" style="outline: none;">Pay with Paypal</button>
       </form>
       {{!-- paypal ends --}}
 
@@ -87,12 +176,12 @@
         <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
         <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
         <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
-        <button class="rightbtn">Pay with esewa</button>
+        <button class="rightbtn" style="outline: none;">Pay with esewa</button>
       </form>
       {{!-- esewa payment html end --}}
 
-      <button class="rightbtn">LOGIN</button>
-      <button class="rightbtn">SIGN UP</button>
+      <button class="rightbtn" style="outline: none;">LOGIN</button>
+      <button class="rightbtn" style="outline: none;">SIGN UP</button>
     </div>
   </div>
   <header>
@@ -101,13 +190,14 @@
     <img class="nepalFlag" src="images/nepalflag.png" alt="nepalflag">
   </header>
 
-<h1 style="text-align: center; font-weight:900">LOGIN FORM</h1>
+  <h1 style="text-align: center; font-weight:900">LOGIN FORM</h1>
   <form action="/login" method="POST">
     <div class="form_container">
       <label style="font-size:1.8rem;" for="email">Email:</label>
       <input type="email" name="email" id="email" placeholder="Enter email address.."><br><br>
       <label style="font-size:1.8rem;" for="pw">Password:</label>
       <input type="password" name="password" id="pw" placeholder="Enter your password.."><br><br>
+      <i class="far fa-eye" id="togglePassword"></i>
       <input style="margin-bottom: 20px;" type="submit" value="Login" />
     </div>
   </form>
@@ -131,6 +221,21 @@
     });
   </script>
   {{!-- dark mode ends --}}
+
+
+  {{!-- For password visibility --}}
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#pw');
+
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 
 </body>
 

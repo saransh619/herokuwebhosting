@@ -29,31 +29,32 @@
     }
 
     #back2Top {
-    width: 44px;
-    line-height: 46px;
-    overflow: hidden;
-    z-index: 999;
-    display: none;
-    cursor: pointer;
-    -moz-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-    position: fixed;
-    bottom: 60px;
-    right: 10px;
-    background-color: #13bf5ce0;
-    color: #0881ff;
-    text-align: center;
-    font-size: 30px;
-    text-decoration: none;
-}
+      width: 44px;
+      line-height: 46px;
+      overflow: hidden;
+      z-index: 999;
+      display: none;
+      cursor: pointer;
+      -moz-transform: rotate(270deg);
+      -webkit-transform: rotate(270deg);
+      -o-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg);
+      position: fixed;
+      bottom: 60px;
+      right: 10px;
+      background-color: #13bf5ce0;
+      color: #0881ff;
+      text-align: center;
+      font-size: 30px;
+      text-decoration: none;
+    }
 
     #back2Top:hover {
       background-color: #DDF;
       color: #000;
     }
+
 
     @media screen and (max-width: 800px) and (min-width: 400px) {
       .homeimg {
@@ -84,6 +85,10 @@
         height: 155px;
         padding: 4px;
       }
+
+      .Active .colorh1{
+          color: whitesmoke;
+      }
     }
   </style>
 </head>
@@ -107,7 +112,7 @@
 
       {{!-- PAYPAL --}}
       <form action="/pay" method="post">
-        <button class="rightbtn">Pay with Paypal</button>
+        <button class="rightbtn" style="outline: none;">Pay with Paypal</button>
       </form>
       {{!-- PAYPAL ENDS --}}
 
@@ -122,19 +127,19 @@
         <input id="poid" value="saransh33" name="pid" type="hidden">
         <input value="https://saransh619.github.io/testingStatus/success?q=su" type="hidden" name="su">
         <input value="https://saransh619.github.io/testingStatus/failed?q=fu" type="hidden" name="fu">
-        <button class="rightbtn">Pay with esewa</button>
+        <button class="rightbtn" style="outline: none;">Pay with esewa</button>
       </form>
       <script>
-       var check = document.getElementById("poid");
-       check.value=Math.floor(Math.random() * 100000) + 1;
-     
-       console.log(check)
+        var check = document.getElementById("poid");
+        check.value = Math.floor(Math.random() * 100000) + 1;
+
+        console.log(check)
       </script>
       {{!-- esewa payment html end --}}
 
 
-      <a href="/login"><button class="rightbtn">LOGIN</button></a>
-      <a href="/register"><button class="rightbtn">SIGN UP</button></a>
+      <a href="/login"><button class="rightbtn" style="outline: none;">LOGIN</button></a>
+      <a href="/register"><button class="rightbtn" style="outline: none;">SIGN UP</button></a>
     </div>
   </div>
   <header>
@@ -149,14 +154,14 @@
   {{!-- navbar --}}
   {{>navbar}}
 
- 
+
   <div class="container-fluid mt-5">
     <div class="row">
       <div class="col-md-10 col-12 mx-auto">
         <div class="row">
           <div
             class="col-md-6 col-12 hero-text order-md-0 order-1 d-flex justify-content-center align-items-start flex-column">
-            <h1>WE WILL HELP</h1>
+            <h1 class="colorh1">WE WILL HELP</h1>
             <h1>TO DEVELOP OUR NATION</h1>
             <p>PAY TAX, <span class="bold-style">SAVE NATION</span></p>
             <a href="https://www.nea.org.np/" target="_saransh"><button style="font-weight:900"
@@ -165,7 +170,8 @@
           {{!-- right side --}}
           <div class="col-md-6 col-12 hero-text order-md-0 order-1">
             <figure>
-              <a href="images/Nepal-Electricity-Authority.jpg"><img class="homeimg" src="images/Nepal-Electricity-Authority.jpg" alt="homesection"></a>
+              <a href="images/Nepal-Electricity-Authority.jpg" target="_619"><img class="homeimg"
+                  src="images/Nepal-Electricity-Authority.jpg" alt="homesection"></a>
             </figure>
           </div>
         </div>
@@ -193,34 +199,34 @@
 
   {{!-- esewa --}}
   {{!-- for payment --}}
-  
+
   {{!-- payment verification check --}}
-  <script> 
-    var path="https://uat.esewa.com.np/epay/transrec";
-var params= {
-    amt: 1000,
-    rid: "000AE01",
-    pid: check,
-    scd: "EPAYTEST"
-}
+  <script>
+    var path = "https://uat.esewa.com.np/epay/transrec";
+    var params = {
+      amt: 1000,
+      rid: "000AE01",
+      pid: check,
+      scd: "EPAYTEST"
+    }
 
-function post(path, params) {
-    var form = document.createElement("form");
-    form.setAttribute("method", "POST");
-    form.setAttribute("action", path);
+    function post(path, params) {
+      var form = document.createElement("form");
+      form.setAttribute("method", "POST");
+      form.setAttribute("action", path);
 
-    for(var key in params) {
+      for (var key in params) {
         var hiddenField = document.createElement("input");
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("name", key);
         hiddenField.setAttribute("value", params[key]);
         form.appendChild(hiddenField);
-    }
+      }
 
-    document.body.appendChild(form);
-    form.submit();
-}
-</script>
+      document.body.appendChild(form);
+      form.submit();
+    }
+  </script>
   {{!-- esewa end --}}
 
 
@@ -249,7 +255,7 @@ function post(path, params) {
         $('.dark').toggleClass('check');
       });
     });
-</script>
+  </script>
   {{!-- dark mode ends --}}
 
 

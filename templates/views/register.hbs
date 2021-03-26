@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
   {{!--
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="css/style.css">
@@ -33,6 +35,50 @@
       font-weight: 600;
       margin-top: 15px;
     }
+
+
+    .mb-3 i {
+      margin-left: 670px;
+      cursor: pointer;
+      position: absolute;
+      top: 611px;
+      font-weight: 900;
+    }
+
+    #togglePassword1 {
+      margin-left: 300px;
+      margin-left: 670px;
+      cursor: pointer;
+      position: absolute;
+      top: 704px;
+      font-weight: 900;
+    }
+
+    @media screen and (max-width: 800px) and (min-width: 400px) {
+      .nepalFlag {
+        height: 14rem;
+      }
+
+      .rightbtn {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 4px 3px;
+        background-color: #151313;
+        color: white;
+        padding: 2px 2px;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+
+      .mb-3 i {
+        margin-left: 314px;
+      }
+
+      #togglePassword1 {
+        margin-left: 314px;
+      }
+    }
   </style>
 </head>
 
@@ -55,7 +101,7 @@
 
       {{!-- PAYPAL --}}
       <form action="/pay" method="post">
-        <button class="rightbtn">Pay with Paypal</button>
+        <button class="rightbtn" style="outline: none;">Pay with Paypal</button>
       </form>
 
       {{!-- esewa payment html --}}
@@ -69,14 +115,14 @@
         <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
         <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
         <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
-        <button class="rightbtn">Pay with esewa</button>
+        <button class="rightbtn" style="outline: none;">Pay with esewa</button>
       </form>
       {{!-- esewa payment html end --}}
 
       {{!-- PAYPAL ENDS --}}
       {{!-- <button class="rightbtn">Pay Online</button> --}}
-      <button class="rightbtn">LOGIN</button>
-      <button class="rightbtn">SIGN UP</button>
+      <button class="rightbtn" style="outline: none;">LOGIN</button>
+      <button class="rightbtn" style="outline: none;">SIGN UP</button>
     </div>
   </div>
   <header>
@@ -117,22 +163,22 @@
     </div>
   </form> --}}
 
-<h1 style="text-align: center; font-weight:900;">REGISTRATION FORM</h1>
+  <h1 style="text-align: center; font-weight:900;">REGISTRATION FORM</h1>
   <div class="container">
     <div class="row">
       <div class="col-10 col-md-8 mx-auto">
         <form>
           <div class="mb-3">
-            <label for="exampleInputName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="exampleInputName" name="fname">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname" name="fname">
           </div>
           <div class="mb-3">
-            <label for="exampleInputName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="exampleInputName" name="lname">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" name="lname">
           </div>
           <div class="mb-3">
-            <label for="exampleInputName" class="form-label">User Name</label>
-            <input type="text" class="form-control" id="exampleInputName" name="us">
+            <label for="us" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="us" name="us">
           </div>
           <div class="mb-3">
             <label class="pr-3">Gender</label>
@@ -146,21 +192,23 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" name="contactnumber">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="phone" name="contactnumber">
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" name="password">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <i class="far fa-eye" id="togglePassword"></i>
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" name="cpassword">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="cpassword" name="cpassword">
+            <i class="far fa-eye" id="togglePassword1"></i>
           </div>
           <button type="submit" class="btn btn-primary buttoncss">Register</button>
         </form>
@@ -186,6 +234,30 @@
     });
   </script>
   {{!-- dark mode ends --}}
+
+
+  {{!-- For password visibility --}}
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const togglePassword1 = document.querySelector('#togglePassword1');
+    const password = document.querySelector('#password');
+    const cpassword = document.querySelector('#cpassword');
+
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+
+    togglePassword1.addEventListener('click', function (err) {
+      const type1 = cpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+      cpassword.setAttribute('type', type1);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 
 </body>
 

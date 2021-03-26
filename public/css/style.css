@@ -147,7 +147,7 @@ label {
 
 .hero-text p span {
   font-weight: bold;
-  color: #000;
+  color: #a04895;;
 }
 
 .btn-style {
@@ -338,3 +338,23 @@ footer p {
   background: #1a1a1a;
   color: white;
 }
+
+.Active footer p{
+  color: brown;
+}
+
+.Active .footercss p{
+  color: green;
+}
+
+.Active .contact-style .sub-heading{
+  color: whitesmoke;
+}
+
+.Active .mb-3 i {
+  color: #000;
+  }
+
+ .Active #togglePassword1 {
+       color: black;
+  }
