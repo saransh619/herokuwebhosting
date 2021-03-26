@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Gateway-saransh@rock</title>
-    {{!-- favicon start  --}}
-<link rel="icon" href="images/favicon/favicon.png" type="image/png">
-<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" type="image/png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-<link rel="manifest" href="images/favicon/site.webmanifest">
-<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-{{!-- favicon end  --}}
+    {{!-- favicon start --}}
+    <link rel="icon" href="images/favicon/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    {{!-- favicon end --}}
     <style>
         * {
             margin: 0;
@@ -122,6 +122,58 @@
             border: none;
             cursor: pointer;
         }
+
+
+        @media screen and (max-width: 800px) and (min-width: 400px) {
+            .container {
+                height: 78vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            h2 {
+                color: rgb(228, 83, 83);
+                font-size: 1.8rem;
+            }
+
+            h1 {
+                color: blueviolet;
+                font-size: 2.2rem;
+            }
+
+            input[type=submit] {
+                padding: 10px 12px;
+                border-radius: 13%;
+                outline: none;
+                color: wheat;
+                background: #3a1486;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin: 10px;
+            }
+
+            .Darkcenter {
+                position: absolute;
+                top: 33%;
+            }
+
+            p {
+                font-size: 1.1rem;
+                text-align: center;
+                background: burlywood;
+                color: saddlebrown;
+                height: 6.2vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+            }
+
+        }
     </style>
 
 </head>
@@ -152,13 +204,13 @@
         <h2 id="time" />
         <h1>Welcome to Dashboard Page</h1>
     </div>
-    
- {{!-- footer starts --}}
-  <footer style="w-100 bg-light text-center ">
-    <p style="height:'10vh',display:'flex',justifyContent:'center',alignItems:'center'">&copy; 2021 SaranshRock. All
-      Rights Reserved | Terms and Conditions</p>
-  </footer>
-  {{!-- footer ends --}}
+
+    {{!-- footer starts --}}
+    <footer style="w-100 bg-light text-center ">
+        <p style="height:'10vh',display:'flex',justifyContent:'center',alignItems:'center'">&copy; 2021 SaranshRock. All
+            Rights Reserved | Terms and Conditions</p>
+    </footer>
+    {{!-- footer ends --}}
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     {{!-- Dark mode --}}
