@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // creating a database
-mongoose.connect("mongodb://localhost:27017/contactform", {
+mongoose.connect("mongodb+srv://saransh:saransh123@cluster0.3oew6.mongodb.net/test?retryWrites=true&w=majority", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -10,3 +10,5 @@ mongoose.connect("mongodb://localhost:27017/contactform", {
 }).catch((error)=>{
     console.log("No Connection");
 })
+
+var conn = mongoose.Collection;
