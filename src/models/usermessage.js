@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-// creating a database
+// creating a database..
 mongoose.connect("mongodb+srv://saransh:saransh123@cluster0.3oew6.mongodb.net/testing?retryWrites=true&w=majority", {
     useCreateIndex: true,
     useNewUrlParser: true,
