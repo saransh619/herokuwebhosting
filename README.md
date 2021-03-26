@@ -1,0 +1,2 @@
+# herokuwebhosting
+This project is mainly based on payment gateway. This is my 6th Semester minor project. In this, I used different programming languages, frameworks and libraries in which for FRONTEND, I used HTML, CSS, JavaScript, Bootstrap 5 and for BackEnd I used NodeJS, ExpressJS & many more packages. At last, for Database, I used MongoDB in which I install mongoose and connect it to both local database and  global database i.e. MongoDB Atlas.
