@@ -30,4 +30,23 @@
              </div>
       </div>
     </div>
-</div>                
+</div>   
+
+<script>
+  function myFun(){
+			// var correct_way = /^[A-Z a-z]+$/;
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var phone = document.getElementById("phone").value;
+		  var message = document.getElementById("message").value;
+			
+
+			if(name && email && phone && message){ ){
+        alert("Thanks for contacting us");
+			}
+      else{
+        document.getElementById("message").innerHTML="**Please fill the username";
+				return false;
+      }
+  }
+</script>
